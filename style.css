@@ -1,7 +1,3 @@
-/*--------------------------------------------------------------
-Typography
---------------------------------------------------------------*/
-
 body,
 button,
 input,
@@ -12,12 +8,7 @@ textarea {
 	line-height: 1.5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
 	clear: both;
 }
 
@@ -25,15 +16,11 @@ p {
 	margin-bottom: 1.5em;
 }
 
-b,
-strong {
+b, strong {
 	font-weight: bold;
 }
 
-dfn,
-cite,
-em,
-i {
+dfn, cite, em, i {
 	font-style: italic;
 }
 
@@ -57,27 +44,21 @@ pre {
 	padding: 1.6em;
 }
 
-code,
-kbd,
-tt,
-var {
+code, kbd, tt, var {
 	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 
-abbr,
-acronym {
+abbr, acronym {
 	border-bottom: 1px dotted #666;
 	cursor: help;
 }
 
-mark,
-ins {
+mark, ins {
 	background: #fff9c0;
 	text-decoration: none;
 }
 
-sup,
-sub {
+sup, sub {
 	font-size: 75%;
 	height: 0;
 	line-height: 0;
@@ -85,25 +66,11 @@ sub {
 	vertical-align: baseline;
 }
 
-sup {
-	bottom: 1ex;
-}
+sup { bottom: 1ex; }
+sub { top: .5ex; }
+small { font-size: 75%; }
+big { font-size: 125%; }
 
-sub {
-	top: .5ex;
-}
-
-small {
-	font-size: 75%;
-}
-
-big {
-	font-size: 125%;
-}
-
-/*--------------------------------------------------------------
-Layout
---------------------------------------------------------------*/
 body {
     margin: 0;
     padding: 0;
@@ -125,7 +92,6 @@ body {
     background: #429890;
 }
 
-
 .intro p,
 .test-area {
     margin: 0 auto;
@@ -140,12 +106,15 @@ body {
 .test-wrapper {
     border: 10px solid grey;
     border-radius: 10px;
+    display: flex;
 }
 
 #origin-text {
     margin: 1em 0;
     padding: 1em 1em 0;
     background-color: #ededed;
+    font-size: 1.1em;
+    line-height: 1.7;
 }
 
 #origin-text p {
@@ -153,8 +122,20 @@ body {
     padding-bottom: 1em;
 }
 
-.test-wrapper {
-    display: flex;
+/* Character-by-character feedback */
+#origin-text span.correct {
+    color: #0F9D58;
+}
+
+#origin-text span.incorrect {
+    color: #D32F2F;
+    background-color: #FFEBEE;
+    text-decoration: underline;
+}
+
+#origin-text span.current {
+    background-color: #FFF59D;
+    border-radius: 2px;
 }
 
 .test-wrapper textarea {
@@ -166,6 +147,7 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .timer {
@@ -178,11 +160,130 @@ body {
     font-size: 1.2em;
     font-weight: bold;
     color: #E95D0F;
-    background: white ;
+    background: white;
     border: 10px solid #E95D0F;
+    cursor: pointer;
 }
 
 #reset:hover {
     color: white;
     background-color: #E95D0F;
+}
+
+.high-scores {
+    margin-top: 2em;
+    padding: 1.5em;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    border-left: 6px solid #429890;
+}
+
+.high-scores h2 {
+    margin-top: 0;
+    color: #0D1B2E;
+    font-size: 1.4em;
+}
+
+#score-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#score-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .75em 1em;
+    margin-bottom: .5em;
+    background-color: white;
+    border-radius: 6px;
+    border-left: 4px solid #E95D0F;
+}
+
+#score-list li:first-child {
+    border-left-color: gold;
+    font-weight: bold;
+}
+
+#score-list .rank {
+    font-weight: bold;
+    color: #429890;
+    flex: 0 0 50px;
+}
+
+#score-list .score-time {
+    font-family: Monaco, Consolas, monospace;
+    font-size: 1.2em;
+    flex: 1;
+    text-align: center;
+}
+
+#score-list .score-date {
+    color: #888;
+    font-size: .9em;
+    flex: 0 0 100px;
+    text-align: right;
+}
+
+#score-list .empty-score {
+    justify-content: center;
+    color: #888;
+    font-style: italic;
+    border-left-color: #ccc;
+}
+
+/* Responsive: stack meta row vertically on phones */
+@media (max-width: 600px) {
+    .masthead h1 {
+        font-size: 1.5em;
+    }
+
+    .intro {
+        padding: 1.5em 1em;
+    }
+
+    .test-area {
+        padding: 0 1em;
+        margin-bottom: 2em;
+    }
+
+    .meta {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .75em;
+    }
+
+    .timer {
+        font-size: 2.5em;
+        text-align: center;
+    }
+
+    #reset {
+        width: 100%;
+        padding: .75em;
+    }
+
+    #score-list li {
+        font-size: .95em;
+        padding: .6em .8em;
+    }
+
+    #score-list .score-date {
+        display: none;
+    }
+
+    .high-scores {
+        padding: 1em;
+    }
+}
+
+@media (max-width: 380px) {
+    .timer {
+        font-size: 2em;
+    }
+
+    .test-wrapper {
+        border-width: 6px;
+    }
 }
