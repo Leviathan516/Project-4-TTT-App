@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Timed Typing Test App</title>
-    <script src="script.js" async></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i,900,900i" type="text/css" media="all">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -34,6 +34,15 @@
 
                 <button id="reset">Start over</button>
             </div><!-- .meta -->
+
+            <!-- High Scores Section: rendered from localStorage -->
+            <section class="high-scores">
+                <h2>Top 3 Fastest Times</h2>
+                <h4>"Ask any racer, any real racer. It don't matter if you win by an inch or a mile. Winning's winning."</h4>
+                <ol id="score-list">
+                    <li class="empty-score">No scores yet — finish a test to record one!</li>
+                </ol>
+            </section>
         </section><!-- .test-area -->
     </main>
 
