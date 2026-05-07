@@ -233,7 +233,13 @@ body {
     border-left-color: #ccc;
 }
 
-/* Responsive: stack meta row vertically on phones */
+/* Responsive: stack meta row vertically on phones 
+
+flex-direction: column flips the row into a stack. Instead of timer-left, button-right, you get timer-on-top, button-below.
+align-items: stretch makes both children fill the full width of the container instead of just being as wide as their content.
+width: 100% on the button gives you a big, full-width tap target — the kind of button mobile users expect.
+
+*/
 @media (max-width: 600px) {
     .masthead h1 {
         font-size: 1.5em;
