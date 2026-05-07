@@ -5,7 +5,7 @@ const resetButton = document.querySelector("#reset");
 const theTimer = document.querySelector(".timer");
 const scoreList = document.querySelector("#score-list");
 
-// Key used in localStorage.
+// Step 1: Key used in localStorage.
 const STORAGE_KEY = "typingTest.topScores";
 const MAX_SCORES = 3;
 
@@ -145,7 +145,7 @@ function formatTime(t) {
     return leadingZero(t[0]) + ":" + leadingZero(t[1]) + ":" + leadingZero(t[2]);
 }
 
-// pull saved scores from localStorage and parse the JSON string
+// Step 2: pull saved scores from localStorage and parse the JSON string
 // back into a real JavaScript array.
 function loadScores() {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -161,7 +161,7 @@ function loadScores() {
     }
 }
 
-// turn the JS array into a JSON string and stash it in localStorage.
+// Step 3: turn the JS array into a JSON string and stash it in localStorage.
 function saveScores(scores) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(scores));
 }
@@ -187,7 +187,7 @@ function recordScore(finishedTime) {
     renderScores(top);
 }
 
-// Render the high scores list. Dynamically creates <li> elements.
+// Step 4: Render the high scores list. Dynamically creates <li> elements.
 function renderScores(scores) {
     scoreList.innerHTML = ""; // clear current list
 
